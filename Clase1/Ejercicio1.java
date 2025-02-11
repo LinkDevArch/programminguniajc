@@ -1,4 +1,4 @@
-import java.lang.reflect.Array;
+/*import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -31,7 +31,7 @@ public class Ejercicio1 {
     }
 
     public static void sumaDeExtremos(){
-        int []num = {4,8,2,1,6,7};
+        int []num = {3,2,1};
 
 
         String suma = "";
@@ -44,4 +44,4 @@ public class Ejercicio1 {
 
         
     }
-}
+}*/
