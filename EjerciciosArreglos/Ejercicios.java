@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Ejercicios {
 
-    public String Ejercicio1 (int a[], int n) {
+    public String ejercicio1 (int a[], int n) {
 
         /*
         Enunciado 1
@@ -30,7 +30,7 @@ public class Ejercicios {
         return cadena + "\nLa suma de los elementos del arreglo es: "+suma;
     }
 
-    public String Ejercicio2 (int a[], int b[], int c[], int n) {
+    public String ejercicio2 (int a[], int b[], int c[], int n) {
 
         /*
         Enunciado 2
@@ -62,7 +62,7 @@ public class Ejercicios {
 
     }
 
-    public String Ejercicio3 (int a[], int n) {
+    public String ejercicio3 (int a[], int n) {
         /*
         Enunciado 3
         Dado un arreglo lineal de números, sumar separadamente los números pares y los 
@@ -92,7 +92,7 @@ public class Ejercicios {
                 "\nLa suma de los números impares es: "+sumaImpares;
     }
 
-    public String Ejercicio4 (int a[], int b[] , int n) {
+    public String ejercicio4 (int a[], int b[] , int n) {
         /*
         Enunciado 4
         Se tienen dos arreglos unidimensionales que guardan las edades de un grupo de 
@@ -121,7 +121,7 @@ public class Ejercicios {
                 "\nEl mayor valor del array b es: "+mayorB;
     }
 
-    public String Ejercicio5 () {
+    public String ejercicio5 () {
         /*
         Enunciado 5
         Se tiene tres arreglos unidimensionales que guardan los precios unitarios (PU) las 
@@ -171,7 +171,7 @@ public class Ejercicios {
                 " con un total de: " + TG[indexMayorGasto];
     }
 
-    public String Ejercicio6 (int a[], int b[], int n) {
+    public String ejercicio6 (int a[], int b[], int n) {
         /*
         Enunciado 6
         Una agencia administradora de inmuebles ha decidido guardar en un arreglo lineal de 
@@ -202,6 +202,107 @@ public class Ejercicios {
 
         return "Array de precios: "+Arrays.toString(a)+"\nArray de porcentajes: "+Arrays.toString(b)+
                 "\nArray de ganancias: "+Arrays.toString(c);
+    }
+
+    public String ejercicio7 (int a[], int n) {
+        /*
+        Enunciado 7
+        Obtener dos arreglos tal que sus elementos sean los números pares y números 
+        impares del arreglo A de 10 elementos.
+        */
+        n=10;
+        a = new int[n];
+
+        for (int i = 0; i < n; i++)
+            a[i] = (int) (Math.random()*100)+1;
+
+        int pares[] = Arrays.stream(a).filter(x -> x % 2 == 0).toArray();
+        int impares[] = Arrays.stream(a).filter(x -> x % 2 != 0).toArray();
+
+
+        return "Arreglo A: "+Arrays.toString(a)+"\nPares: "+Arrays.toString(pares)+"\nImpares: "+Arrays.toString(impares);
+    }
+
+    public String ejercicio8 (int a[], int n) {
+        /*
+        Enunciado 8
+        Elaborar un programa que lea 30 números y que imprima el número mayor, menor y el 
+        número de veces que se repiten ambos.
+        */
+
+        n = 30;
+        a = new int[n];
+
+        for (int i = 0; i < n; i++)
+            a[i] = (int) (Math.random()*20)+1;
+
+        int mayor = Arrays.stream(a).max().getAsInt();
+        int menor = Arrays.stream(a).min().getAsInt();
+
+        int repeticionesMayor = (int) Arrays.stream(a).filter(x -> x == mayor).count();
+        int repeticionesMenor = (int) Arrays.stream(a).filter(x -> x == menor).count();
+        
+        return "Array: "+Arrays.toString(a)+"\nMayor: "+mayor+"\nMenor: "+menor+
+                "\nRepeticiones del mayor: "+repeticionesMayor+"\nRepeticiones del menor: "+repeticionesMenor;
+    }
+
+    public String ejercicio9 (int a[], int n) {
+        /*
+        Enunciado 9
+        Codifique un programa tal, que dado como entrada un arreglo unidimensional de 
+        enteros y un número entero, determine cuántas veces se encuentra este número 
+        dentro del arreglo
+        */
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Ingrese el tamaño del arreglo: ");
+        n = sc.nextInt();
+        System.out.print("Ingrese el número a buscar: ");
+        int numero = sc.nextInt();
+        a = new int[n];
+
+        for (int i = 0; i < n; i++)
+            a[i] = (int) (Math.random()*100)+1;
+
+        int repeticionesN = (int) Arrays.stream(a).filter(x -> x == numero).count();
+
+        sc.close();
+
+        return "Array: "+Arrays.toString(a)+"\nRepeticiones del Numero: "+repeticionesN;
+    }
+
+    public String ejercicio10 (){
+
+        /*
+        Enunciado 10
+        Dado un arreglo A de N elementos se desea crear otro arreglo, tal que cada uno de sus 
+        elementos sea la suma de los opuestos en el arreglo dado.
+
+        Ejemplo: Arreglo dado A = (8,5,3,10,2,8,1)
+        Arreglo resultante B=(10,13,5,10)
+        */
+
+        int a[] = {8,5,3,10,2,8,1};
+        int b[] = new int[0];
+
+        if (a.length%2==0)
+        {
+            b = new int[a.length/2];
+            for (int i = 0; i < a.length/2; i++) {
+                b[i] = a[i] + a[a.length - 1 - i];
+            }
+        }
+        else {
+            b = new int[(a.length/2)+1];
+
+            for (int i = 0; i < a.length/2; i++)
+                b[i] = a[i] + a[a.length - 1 - i];
+            
+            b[a.length/2] = a[a.length/2];
+        }
+
+        return "Array A: "+Arrays.toString(a)+"\nArray B: "+Arrays.toString(b);
     }
 
 }
