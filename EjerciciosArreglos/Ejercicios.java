@@ -413,13 +413,17 @@ public class Ejercicios {
 
         String trabajadoresSueldoPromedio = "";
 
+        int cont = 0;
+
         for (int i = 0; i < sueldos.length; i++) {
-            if (sueldos[i] >= sueldoPromedioMinimo && sueldos[i] <= sueldoPromedioMaximo)
+            if (sueldos[i] >= sueldoPromedioMinimo && sueldos[i] <= sueldoPromedioMaximo) {
                 trabajadoresSueldoPromedio += nombres[i] + " | ";
+                cont++;
+            }
         }
 
 
-        return "Trabajadores con sueldo promedio: "+trabajadoresSueldoPromedio+"\nSueldo promedio: "+sueldoPromedioMinimo+" - "+sueldoPromedioMaximo;
+        return "Trabajadores con sueldo promedio: "+trabajadoresSueldoPromedio+"\nCuantos tienen el sueldo promedio: "+cont+"\nSueldo promedio: "+sueldoPromedioMinimo+" - "+sueldoPromedioMaximo;
     }
 
     public String ejercicio16 () {
