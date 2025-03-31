@@ -10,32 +10,40 @@ public class EjecutarPila {
 
     public static void main(String[] args) {
         InnerEjecutarPila innerEjecutarPila = new InnerEjecutarPila();
-        //innerEjecutarPila.mostrarPila();
+        innerEjecutarPila.insertarElemento("Pedro");
+        innerEjecutarPila.insertarElemento("Juan");
+        innerEjecutarPila.insertarElemento("Maria");
+        innerEjecutarPila.mostrarPila();
+        
         //System.out.println(innerEjecutarPila.expresionPostFija());
-        System.out.println(innerEjecutarPila.numerosReales());
+        //System.out.println(innerEjecutarPila.numerosReales());
     }
 
     public static class InnerEjecutarPila {
-    
+        
         // Punto 9.2 Escribir el método mostarPila() para escribir los elementos de una pila de cadenas 
         // de caracteres, utilizando sólo las operaciones básicas y una pila auxiliar.
-        
-        public void mostrarPila() {
-            Deque<String> pila = new ArrayDeque<>();
 
+        // Pila original
+        private Deque<String> pila = new ArrayDeque<>();
+
+        // Método para insertar elementos en la pila
+        public void insertarElemento(String elemento) {
+            pila.push(elemento);
+        }
+
+        public void mostrarPila() {
             Deque<String> pilaAux = new ArrayDeque<>();
 
-            pila.push("Pedro");
-            pila.push("Juan");
-            pila.push("María");
-
-            while (pila.isEmpty() == false) {
-                pilaAux.push(pila.pop());
+            // Vaciar la pila original, imprimir y guardar en la auxiliar
+            while (!pila.isEmpty()) {
+                String elemento = pila.pop();
+                System.out.println(elemento);
+                pilaAux.push(elemento);
             }
 
-            
-            while (pilaAux.isEmpty() == false) {
-                System.out.println(pilaAux.peek());
+            // Restaurar la pila original desde la auxiliar
+            while (!pilaAux.isEmpty()) {
                 pila.push(pilaAux.pop());
             }
         }
