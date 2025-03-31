@@ -1,7 +1,9 @@
 package TareaPilasColas;
 
 import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.Deque;
+import java.util.Scanner;
 
 public class EjecutarPila {
 
@@ -9,7 +11,8 @@ public class EjecutarPila {
     public static void main(String[] args) {
         InnerEjecutarPila innerEjecutarPila = new InnerEjecutarPila();
         //innerEjecutarPila.mostrarPila();
-        System.out.println(innerEjecutarPila.expresionPostFija());
+        //System.out.println(innerEjecutarPila.expresionPostFija());
+        System.out.println(innerEjecutarPila.numerosReales());
     }
 
     public static class InnerEjecutarPila {
@@ -106,6 +109,31 @@ public class EjecutarPila {
             return postFija.toString().trim();
 
         }
+
+        public String numerosReales () {
+
+            Scanner sc = new Scanner(System.in);
+
+            Deque<Integer> pilaNumeros = new ArrayDeque<>();
+            int [] arrayNumeros = new int[10];
+
+            for (int i = 0; i < arrayNumeros.length; i++) {
+                System.out.println("Ingrese el "+(i+1)+" numero: ");
+                arrayNumeros[i] = sc.nextInt();
+                pilaNumeros.push(arrayNumeros[i]);
+            }
+
+            System.out.println("Resultado en Pila:\n");
+            while (!pilaNumeros.isEmpty()) {
+                System.out.println(pilaNumeros.peek());
+                pilaNumeros.pop();
+            }
+
+            sc.close();
+            return "\nSecuencia original"+Arrays.toString(arrayNumeros);
+        }
+
+        
 
     }
 
