@@ -29,7 +29,6 @@ public class Cliente implements Runnable {
                     cajaElegida=caja;
                 }
             }
-
             //Se pone en la cola de la caja elegida (bloquea si esta llena)
             cajaElegida.put(this);
             System.out.println("Cliente " + Thread.currentThread().threadId() + " entro a caja " + (cajas.indexOf(cajaElegida)+1));
