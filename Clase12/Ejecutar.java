@@ -30,11 +30,13 @@ public class Ejecutar {
         Calcular las emisiones de CO2 para cada una de las categorias en cada uno de sus tipos de combustible.
         */
 
-        List<Vehiculo> vehiculos = List.of(new Vehiculo("Camiones Livianos",400000, 0.30, 0.40, 0.30),
+        List<Vehiculo> vehiculos = List.of(
+                new Vehiculo("Camiones Livianos",400000, 0.30, 0.40, 0.30),
                 new Vehiculo("Camiones Medianos",280000, 0.25, 0.50, 0.25),
                 new Vehiculo("Camiones Pesados",380000, 0.10, 0.80, 0.10),
                 new Vehiculo("Tractocamiones",1150000, 0.05, 0.90, 0.05),
-                new Vehiculo("Volquetas",936000, 0.40, 0.40, 0.20));
+                new Vehiculo("Volquetas",936000, 0.40, 0.40, 0.20)
+                );
         
         for (Vehiculo vehiculo : vehiculos) {
             System.out.println(vehiculo.getEmisiones()+"\n");
