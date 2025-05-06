@@ -1,8 +1,6 @@
 package Clase10;
 
-import java.util.Deque;
 import java.util.Stack;
-import java.util.ArrayDeque;
 
 public class EjecutarPilaTrabajador {
     public static void main(String[] args) {
