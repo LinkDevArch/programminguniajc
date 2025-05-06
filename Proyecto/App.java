@@ -94,8 +94,7 @@ public class App {
 
         Usuario usuario = new Registrado();
         usuario.registrarse(1, email, password);
-
-        System.out.println("\nUsuario registrado con éxito: " + usuario.getEmail());
+        
     }
 
     private static void iniciarSesionAdministrador() {
